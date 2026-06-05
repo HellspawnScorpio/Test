@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Wedding of Shahzad & Farha</title>
     
+    <!-- Core Tailwind UI Architecture -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Premium Motion Engineering Framework Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
+    <!-- Premium Typography Registry -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Montserrat:wght@100;200;300;400;500;700&family=Cinzel:wght@300;400;500;700&family=Amiri&display=swap" rel="stylesheet">
@@ -47,6 +50,19 @@
             z-index: 1;
             pointer-events: none;
             opacity: 0.85;
+        }
+
+        /* Elegant Diamond Background Geometry Frame */
+        .hero-diamond-frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: min(58vw, 58vh);
+            height: min(58vw, 58vh);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            pointer-events: none;
+            z-index: 2;
         }
 
         /* Continuous Dynamic Luxury Overlay */
@@ -94,12 +110,15 @@
 </head>
 <body class="antialiased select-none overflow-hidden">
 
+    <!-- 🪐 INTERACTIVE THREE.JS WEBGL STARFIELD BACKDROP -->
     <div id="webgl-canvas-container"></div>
 
+    <!-- 🎵 CINEMATIC AUDIO LOOP EMBED -->
     <audio id="wedding-symphony" loop preload="auto">
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mp3">
     </audio>
 
+    <!-- 🚪 LUXURY ENTRY OVERLAY LAYER -->
     <div id="loading-curtain" class="fixed inset-0 bg-[#f5f2eb] z-50 flex flex-col items-center justify-between py-20 px-6">
         
         <div id="curtain-header" class="text-center pt-8 opacity-0">
@@ -113,6 +132,7 @@
                 <p class="font-sans-labels text-[11px] tracking-[0.4em] text-[#9e8047] uppercase font-medium">An Eternal Union</p>
             </div>
             
+            <!-- Dynamic Luxury Button -->
             <button onclick="igniteCinematicSystem()" class="group relative w-full py-6 rounded-none overflow-hidden transition-all duration-500 bg-[#1e1b15] shadow-xl hover:shadow-[#c5a059]/20">
                 <span class="absolute inset-0 bg-gradient-to-r from-[#c5a059] via-[#e5c17d] to-[#c5a059] opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"></span>
                 <span class="relative font-sans-labels text-[11px] tracking-[0.6em] uppercase text-[#e5c17d] group-hover:text-[#1e1b15] transition-colors duration-500 block font-bold">
@@ -126,6 +146,7 @@
         </div>
     </div>
 
+    <!-- 🔊 STICKY FLOATING HUD CUSTOM MEDIA CONTROL PANEL -->
     <div id="hud-audio-control" class="fixed top-8 right-8 z-40 opacity-0 pointer-events-none transition-all duration-1000 transform translate-y-[-10px]">
         <button onclick="toggleSymphonyPlaystate()" class="flex items-center gap-4 bg-white/95 backdrop-blur-2xl border border-[#c5a059]/30 pl-4 pr-5 py-3 rounded-none shadow-xl hover:border-[#c5a059] transition-all duration-300">
             <div id="wave-visualizer" class="flex gap-[2.5px] items-center h-4 w-4 audio-paused-state">
@@ -138,6 +159,7 @@
         </button>
     </div>
 
+    <!-- 🗺️ RIGHT SIDE HUD PAGE TRACKER / NAVIGATION GRAPHIC -->
     <div id="hud-navigation-matrix" class="fixed right-6 top-1/2 -translate-y-1/2 z-40 flex flex-col items-end gap-7 opacity-0 transition-all duration-1000 hidden md:flex">
         <div class="flex items-center gap-3 group cursor-pointer" onclick="document.getElementById('hero-viewport').scrollIntoView();">
             <span class="hud-nav-label font-sans-labels text-[9px] tracking-[0.25em] uppercase text-[#9e8047] opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 font-bold">01 // Welcome</span>
@@ -161,12 +183,18 @@
         </div>
     </div>
 
+    <!-- 🪐 SECTION 1: CINEMATIC FULL SCREEN FILMIC HEADER WITH BACKGROUND FRAME -->
     <section id="hero-viewport" class="relative w-full h-screen overflow-hidden flex flex-col justify-between items-center text-center px-4 z-10">
+        
+        <!-- Diamond Frame Layout Geometric Border -->
+        <div class="hero-diamond-frame hero-stagger-node"></div>
+
         <div class="pt-28 z-10 hero-stagger-node">
             <div class="font-arabic text-4xl text-[#c5a059] tracking-wide mb-4">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
             <span class="font-sans-labels text-[10px] tracking-[0.6em] uppercase text-[#9e8047] font-semibold block">Together with their Families</span>
         </div>
 
+        <!-- Main Identity Layout -->
         <div class="my-auto space-y-8 z-10 relative">
             <h2 class="font-editorial-serif text-5xl sm:text-7xl lg:text-8xl text-[#1e1b15] tracking-[0.25em] font-light leading-tight hero-title-node">
                 SHAHZAD <br class="sm:hidden"><span class="text-xl sm:text-2xl font-sans-labels font-medium text-[#c5a059] tracking-[0.4em] block sm:inline my-6 sm:my-0 sm:mx-8">and</span> FARHA
@@ -183,8 +211,10 @@
         </div>
     </section>
 
+    <!-- 🌌 CORE EDITORIAL SCROLL VIEWPORT WRAPPER -->
     <div class="scrolling-viewport-wrapper w-full">
 
+        <!-- 🕯️ SECTION 2: HOST INVOCATIONS -->
         <section id="section-invitation" class="max-w-4xl mx-auto px-6 py-40 sm:py-56 text-center space-y-20 relative z-20">
             <div class="gsap-reveal-block space-y-6">
                 <span class="font-sans-labels text-[11px] tracking-[0.5em] text-[#c5a059] uppercase font-bold block">The Celebration</span>
@@ -195,6 +225,7 @@
 
             <div class="w-[1px] h-36 bg-gradient-to-b from-[#c5a059] to-transparent mx-auto gsap-reveal-block"></div>
 
+            <!-- Host Identity Blocks -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 text-center max-w-3xl mx-auto pt-4 font-editorial-serif">
                 <div class="gsap-reveal-block space-y-4 relative p-8 bg-white/40 border border-[#c5a059]/10 shadow-sm">
                     <span class="font-sans-labels text-[10px] tracking-[0.3em] text-[#9e8047] uppercase block font-semibold">Parents of the Groom</span>
@@ -216,9 +247,11 @@
             </div>
         </section>
 
+        <!-- 👑 SECTION 3: THE COUPLING HERITAGE -->
         <section id="section-lineage" class="max-w-5xl mx-auto px-6 py-32 border-t border-[#c5a059]/20">
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
                 
+                <!-- Groom Info Block -->
                 <div class="lg:col-span-2 text-center lg:text-right space-y-5 gsap-profile-left">
                     <span class="font-sans-labels text-[10px] tracking-[0.45em] uppercase text-[#c5a059] font-bold block">The Groom</span>
                     <h2 class="font-editorial-serif text-4xl sm:text-5xl tracking-[0.15em] font-medium text-[#1e1b15]">SHAHZAD</h2>
@@ -229,12 +262,14 @@
                     </p>
                 </div>
 
+                <!-- Central Layout Divider -->
                 <div class="lg:col-span-1 flex flex-col items-center justify-center py-4 lg:py-0 gsap-reveal-block">
                     <div class="w-[1px] h-8 bg-[#c5a059]/40 hidden lg:block mb-4"></div>
                     <span class="font-editorial-serif text-2xl text-[#c5a059] font-normal italic">UNITED WITH</span>
                     <div class="w-[1px] h-8 bg-[#c5a059]/40 hidden lg:block mt-4"></div>
                 </div>
 
+                <!-- Bride Info Block -->
                 <div class="lg:col-span-2 text-center lg:text-left space-y-5 gsap-profile-right">
                     <span class="font-sans-labels text-[10px] tracking-[0.45em] uppercase text-[#c5a059] font-bold block">The Bride</span>
                     <h2 class="font-editorial-serif text-4xl sm:text-5xl tracking-[0.15em] font-medium text-[#1e1b15]">FARHA</h2>
@@ -248,14 +283,17 @@
             </div>
         </section>
 
+        <!-- ⏱️ SECTION 4: HOROLOGIC SCHEDULING & LOCATION MAPS -->
         <section id="section-logistics" class="max-w-4xl mx-auto px-6 py-40 text-center space-y-24 border-t border-[#c5a059]/20">
             <div class="gsap-reveal-block text-center space-y-3">
                 <span class="font-sans-labels text-[10px] tracking-[0.5em] text-[#9e8047] uppercase block font-semibold">Date & Location</span>
                 <h2 class="font-editorial-serif text-3xl sm:text-4xl font-light tracking-widest text-[#1e1b15]">TIME & DESTINATION</h2>
             </div>
 
+            <!-- Elegant Layout Information Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl mx-auto">
                 
+                <!-- Date Card -->
                 <div class="gsap-card-element bg-white/40 border border-[#c5a059]/30 p-12 space-y-8 shadow-sm relative rounded-none">
                     <span class="font-sans-labels text-[10px] tracking-[0.3em] text-[#c5a059] uppercase font-bold block">The Date</span>
                     <div class="space-y-2">
@@ -268,6 +306,7 @@
                     </p>
                 </div>
 
+                <!-- Location Card -->
                 <div class="gsap-card-element bg-white/40 border border-[#c5a059]/30 p-12 space-y-8 shadow-sm relative rounded-none flex flex-col justify-between">
                     <div class="space-y-6">
                         <span class="font-sans-labels text-[10px] tracking-[0.3em] text-[#c5a059] uppercase font-bold block">The Venue</span>
@@ -285,6 +324,7 @@
 
             </div>
 
+            <!-- Realtime Counter Module -->
             <div class="gsap-reveal-block max-w-xl mx-auto pt-16 border-t border-[#c5a059]/20">
                 <span class="font-sans-labels text-[10px] tracking-[0.4em] text-[#9e8047] uppercase block mb-10 font-semibold">Counting Down To The Celebration</span>
                 <div id="live-countdown-clock" class="grid grid-cols-4 gap-4 font-editorial-serif text-4xl sm:text-5xl text-[#1e1b15] font-light">
@@ -296,6 +336,7 @@
             </div>
         </section>
 
+        <!-- 📜 OUR STORY TIMELINE COMPONENT -->
         <section id="section-chronicles" class="max-w-4xl mx-auto px-6 py-32 border-t border-[#c5a059]/20 text-center space-y-20">
             <div class="gsap-reveal-block space-y-3">
                 <span class="font-sans-labels text-[10px] tracking-[0.5em] text-[#9e8047] uppercase block font-semibold">Our Story</span>
@@ -303,18 +344,21 @@
             </div>
 
             <div class="relative border-l border-[#c5a059]/30 max-w-xl mx-auto text-left pl-8 space-y-12">
+                <!-- Node 1 -->
                 <div class="gsap-story-node relative space-y-2">
                     <div class="absolute -left-[37px] top-1.5 w-4 h-4 bg-[#1e1b15] border border-[#c5a059] rotate-45"></div>
                     <span class="font-sans-labels text-[10px] tracking-widest text-[#c5a059] font-bold block">OCTOBER 2025</span>
                     <h4 class="font-editorial-serif text-xl font-medium text-[#1e1b15]">The First Meet</h4>
                     <p class="text-sm font-light text-[#1e1b15]/70 leading-relaxed">The beautiful beginning of our journey where our paths crossed for the very first time, turning a new page toward a shared future.</p>
                 </div>
+                <!-- Node 2 -->
                 <div class="gsap-story-node relative space-y-2">
                     <div class="absolute -left-[37px] top-1.5 w-4 h-4 bg-[#1e1b15] border border-[#c5a059] rotate-45"></div>
                     <span class="font-sans-labels text-[10px] tracking-widest text-[#c5a059] font-bold block">DECEMBER 2025</span>
                     <h4 class="font-editorial-serif text-xl font-medium text-[#1e1b15]">The Engagement</h4>
                     <p class="text-sm font-light text-[#1e1b15]/70 leading-relaxed">With the joyful blessings of our families, we sealed our intentions with an official promise of love and lifelong commitment.</p>
                 </div>
+                <!-- Node 3 -->
                 <div class="gsap-story-node relative space-y-2">
                     <div class="absolute -left-[37px] top-1.5 w-4 h-4 bg-[#c5a059] border border-[#e5c17d] rotate-45 animate-pulse"></div>
                     <span class="font-sans-labels text-[10px] tracking-widest text-[#c5a059] font-bold block">JULY 2026</span>
@@ -324,17 +368,25 @@
             </div>
         </section>
 
+        <!-- 👑 SECTION 5: MASTER CLOSING PORTAL MATRICES (Expanded Left/Right Layout) -->
         <footer class="w-full text-center py-24 border-t border-[#c5a059]/20 relative z-20 bg-white/90">
-            <div class="space-y-4 gsap-reveal-block">
+            <div class="max-w-7xl mx-auto px-6 md:px-16 gsap-reveal-block space-y-6">
                 <p class="font-sans-labels text-[11px] tracking-[0.4em] text-[#9e8047] uppercase font-semibold">
-                    With Kindest Compliments From <span class="text-[#1e1b15] font-bold">The Moopan Family</span>
+                    With Kindest Compliments From
                 </p>
-                <div class="text-[14px] font-light text-[#1e1b15]/70 italic font-serif">Anticipating your treasured presence.</div>
+                <h3 class="font-editorial-serif text-2xl sm:text-3xl lg:text-4xl text-[#1e1b15] tracking-widest leading-relaxed">
+                    The Moopan & Firosh Families
+                </h3>
+                <div class="w-32 h-[1px] bg-gradient-to-r from-transparent via-[#c5a059] to-transparent mx-auto mt-4"></div>
+                <div class="text-[14px] sm:text-16px font-light text-[#1e1b15]/70 italic font-serif pt-4 tracking-wide">
+                    Anticipating your treasured presence to celebrate our joy.
+                </div>
             </div>
         </footer>
 
     </div>
 
+    <!-- UI Execution Lifecycle Automation Scripts -->
     <script>
         const weddingTimestamp = new Date("2026-07-11T11:00:00").getTime();
         const loopAudioContext = document.getElementById('wedding-symphony');
@@ -562,6 +614,7 @@
             });
         }
 
+        // Realtime Countdown Engine
         function setupCountdownClock() {
             function updateClock() {
                 const now = new Date().getTime();
