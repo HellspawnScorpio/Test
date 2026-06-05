@@ -16,20 +16,21 @@
     <!-- Premium Typography Registry -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Montserrat:wght@100;200;300;400;500&family=Cinzel:wght@300;400;500&family=Amiri&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Montserrat:wght@100;200;300;400;500;700&family=Cinzel:wght@300;400;500;700&family=Amiri&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --luxury-black: #0c0b0a;
-            --canvas-grey: #141312;
-            --gold-accent: #dfba73;
-            --gold-muted: #bda373;
-            --editorial-white: #f5f4f0;
+            --epic-white: #fcfbfa;
+            --canvas-cream: #f5f2eb;
+            --gold-accent: #c5a059;
+            --gold-bright: #e5c17d;
+            --gold-muted: #9e8047;
+            --luxury-dark: #1e1b15;
         }
 
         body {
-            background-color: var(--luxury-black);
-            color: var(--editorial-white);
+            background-color: var(--epic-white);
+            color: var(--luxury-dark);
             font-family: 'Cormorant Garamond', serif;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
@@ -39,7 +40,7 @@
         .font-sans-labels { font-family: 'Montserrat', sans-serif; }
         .font-arabic { font-family: 'Amiri', serif; }
 
-        /* WebGL ThreeJS Ambient Overlay Port */
+        /* WebGL Background Canvas */
         #webgl-canvas-container {
             position: fixed;
             top: 0;
@@ -48,14 +49,14 @@
             height: 100%;
             z-index: 1;
             pointer-events: none;
-            opacity: 0.65;
+            opacity: 0.85;
         }
 
         /* Continuous Dynamic Luxury Overlay */
         .scrolling-viewport-wrapper {
             position: relative;
             z-index: 10;
-            background: linear-gradient(to bottom, rgba(12,11,10,0.5) 0%, rgba(20,19,18,0.85) 50%, rgba(12,11,10,0.95) 100%);
+            background: linear-gradient(to bottom, rgba(252,251,250,0.4) 0%, rgba(245,242,235,0.9) 30%, rgba(252,251,250,0.95) 100%);
         }
 
         /* Interactive Audio Indicator Wave Bars */
@@ -79,14 +80,24 @@
             transform: scaleY(0.3) !important;
         }
 
-        /* Global Layout Configurations */
         ::-webkit-scrollbar { display: none; }
         .text-clip-mask { overflow: hidden; }
+
+        /* Right Side Navigation HUD */
+        .hud-nav-dot.active-hud-dot {
+            background-color: var(--gold-accent);
+            transform: rotate(45deg) scale(1.3);
+            border-color: var(--gold-bright);
+        }
+        .hud-nav-dot.active-hud-dot + .hud-nav-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
     </style>
 </head>
 <body class="antialiased select-none overflow-hidden">
 
-    <!-- 🪐 INTERACTIVE THREE.JS WEBGL GOLD STARS BACKDROP -->
+    <!-- 🪐 INTERACTIVE THREE.JS WEBGL GOLD CRYSTAL PARTICLES BACKDROP -->
     <div id="webgl-canvas-container"></div>
 
     <!-- 🎵 CINEMATIC AUDIO LOOP EMBED -->
@@ -94,135 +105,159 @@
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mp3">
     </audio>
 
-    <!-- 🚪 LUXURY INTERACTIVE ENTRY CURTAIN INTERFACE -->
-    <div id="loading-curtain" class="fixed inset-0 bg-[#0c0b0a] z-50 flex flex-col items-center justify-between py-20 px-6">
+    <!-- 🚪 LUXURY ENTRY OVERLAY LAYER -->
+    <div id="loading-curtain" class="fixed inset-0 bg-[#f5f2eb] z-50 flex flex-col items-center justify-between py-20 px-6">
+        
         <div id="curtain-header" class="text-center pt-8 opacity-0">
-            <span class="font-sans-labels text-[9px] tracking-[0.6em] text-stone-500 uppercase block mb-3">The Digital Portal of</span>
-            <h1 class="font-editorial-serif text-xl sm:text-2xl text-[#dfba73] tracking-[0.35em] font-light">SHAHZAD & FARHA</h1>
+            <span class="font-sans-labels text-[10px] tracking-[0.7em] text-[#9e8047] uppercase block mb-3 font-semibold">The Wedding Invitation</span>
+            <h1 class="font-editorial-serif text-2xl sm:text-3xl text-[#1e1b15] tracking-[0.4em] font-light">SHAHZAD & FARHA</h1>
+            <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#c5a059] to-transparent mx-auto mt-4"></div>
         </div>
 
-        <div id="curtain-interactive-node" class="text-center space-y-10 opacity-0">
+        <div id="curtain-interactive-node" class="text-center space-y-10 opacity-0 w-full max-w-sm">
             <div class="space-y-2">
-                <p class="font-sans-labels text-[10px] tracking-[0.3em] text-stone-400 uppercase">The Royal Invitation</p>
-                <div class="w-8 h-[0.5px] bg-[#dfba73]/40 mx-auto"></div>
+                <p class="font-sans-labels text-[11px] tracking-[0.4em] text-[#9e8047] uppercase font-medium">An Eternal Union</p>
             </div>
             
-            <!-- Luxury Dynamic Structural Button Expansion Frame -->
-            <button onclick="igniteCinematicSystem()" class="group relative px-16 py-6 rounded-none overflow-hidden transition-all duration-500 bg-transparent">
-                <!-- Border Layout Geometry Lines -->
-                <span class="absolute top-0 left-0 w-full h-[1px] bg-stone-800 group-hover:bg-[#dfba73] transition-colors duration-700"></span>
-                <span class="absolute bottom-0 left-0 w-full h-[1px] bg-stone-800 group-hover:bg-[#dfba73] transition-colors duration-700"></span>
-                <span class="absolute top-0 left-0 w-[1px] h-full bg-stone-800 group-hover:bg-[#dfba73] transition-colors duration-700"></span>
-                <span class="absolute top-0 right-0 w-[1px] h-full bg-stone-800 group-hover:bg-[#dfba73] transition-colors duration-700"></span>
-                
-                <span class="absolute inset-[5px] bg-[#dfba73] scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] origin-left"></span>
-                <span class="relative font-sans-labels text-[10px] tracking-[0.5em] uppercase text-stone-400 group-hover:text-stone-900 transition-colors duration-500 block font-medium">
-                    Enter the Invitation
+            <!-- Dynamic Luxury Button -->
+            <button onclick="igniteCinematicSystem()" class="group relative w-full py-6 rounded-none overflow-hidden transition-all duration-500 bg-[#1e1b15] shadow-xl hover:shadow-[#c5a059]/20">
+                <span class="absolute inset-0 bg-gradient-to-r from-[#c5a059] via-[#e5c17d] to-[#c5a059] opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"></span>
+                <span class="relative font-sans-labels text-[11px] tracking-[0.6em] uppercase text-[#e5c17d] group-hover:text-[#1e1b15] transition-colors duration-500 block font-bold">
+                    Open Invitation
                 </span>
             </button>
         </div>
 
         <div id="curtain-footer" class="text-center opacity-0">
-            <span class="font-sans-labels text-[8px] tracking-[0.25em] text-stone-600 uppercase">© 2026 The Moopan Wedding Portfolio</span>
+            <span class="font-sans-labels text-[9px] tracking-[0.3em] text-[#9e8047]/60 uppercase">Designed with Love // 2026</span>
         </div>
     </div>
 
     <!-- 🔊 STICKY FLOATING HUD CUSTOM MEDIA CONTROL PANEL -->
     <div id="hud-audio-control" class="fixed top-8 right-8 z-40 opacity-0 pointer-events-none transition-all duration-1000 transform translate-y-[-10px]">
-        <button onclick="toggleSymphonyPlaystate()" class="flex items-center gap-4 bg-stone-900/60 backdrop-blur-2xl border border-stone-800 pl-4 pr-5 py-3 rounded-full shadow-2xl hover:bg-stone-900 transition-all duration-300">
+        <button onclick="toggleSymphonyPlaystate()" class="flex items-center gap-4 bg-white/95 backdrop-blur-2xl border border-[#c5a059]/30 pl-4 pr-5 py-3 rounded-none shadow-xl hover:border-[#c5a059] transition-all duration-300">
             <div id="wave-visualizer" class="flex gap-[2.5px] items-center h-4 w-4 audio-paused-state">
                 <div class="audio-wave-bar"></div>
                 <div class="audio-wave-bar"></div>
                 <div class="audio-wave-bar"></div>
                 <div class="audio-wave-bar"></div>
             </div>
-            <span class="font-sans-labels text-[8.5px] tracking-[0.3em] uppercase text-[#dfba73] font-medium">Sound Track</span>
+            <span class="font-sans-labels text-[9px] tracking-[0.3em] uppercase text-[#1e1b15] font-semibold">Music</span>
         </button>
+    </div>
+
+    <!-- 🗺️ RIGHT SIDE HUD PAGE TRACKER / NAVIGATION GRAPHIC -->
+    <div id="hud-navigation-matrix" class="fixed right-6 top-1/2 -translate-y-1/2 z-40 flex flex-col items-end gap-7 opacity-0 transition-all duration-1000 hidden md:flex">
+        <div class="flex items-center gap-3 group cursor-pointer" onclick="document.getElementById('hero-viewport').scrollIntoView();">
+            <span class="hud-nav-label font-sans-labels text-[9px] tracking-[0.25em] uppercase text-[#9e8047] opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 font-bold">01 // Welcome</span>
+            <div class="hud-nav-dot w-2 h-2 border border-[#c5a059] rotate-45 transition-all duration-500 bg-transparent active-hud-dot" data-target="hero-viewport"></div>
+        </div>
+        <div class="flex items-center gap-3 group cursor-pointer" onclick="document.getElementById('section-invitation').scrollIntoView();">
+            <span class="hud-nav-label font-sans-labels text-[9px] tracking-[0.25em] uppercase text-[#9e8047] opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 font-bold">02 // Invitation</span>
+            <div class="hud-nav-dot w-2 h-2 border border-[#c5a059] rotate-45 transition-all duration-500 bg-transparent" data-target="section-invitation"></div>
+        </div>
+        <div class="flex items-center gap-3 group cursor-pointer" onclick="document.getElementById('section-lineage').scrollIntoView();">
+            <span class="hud-nav-label font-sans-labels text-[9px] tracking-[0.25em] uppercase text-[#9e8047] opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 font-bold">03 // Family</span>
+            <div class="hud-nav-dot w-2 h-2 border border-[#c5a059] rotate-45 transition-all duration-500 bg-transparent" data-target="section-lineage"></div>
+        </div>
+        <div class="flex items-center gap-3 group cursor-pointer" onclick="document.getElementById('section-logistics').scrollIntoView();">
+            <span class="hud-nav-label font-sans-labels text-[9px] tracking-[0.25em] uppercase text-[#9e8047] opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 font-bold">04 // Details</span>
+            <div class="hud-nav-dot w-2 h-2 border border-[#c5a059] rotate-45 transition-all duration-500 bg-transparent" data-target="section-logistics"></div>
+        </div>
+        <div class="flex items-center gap-3 group cursor-pointer" onclick="document.getElementById('section-chronicles').scrollIntoView();">
+            <span class="hud-nav-label font-sans-labels text-[9px] tracking-[0.25em] uppercase text-[#9e8047] opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 font-bold">05 // Story</span>
+            <div class="hud-nav-dot w-2 h-2 border border-[#c5a059] rotate-45 transition-all duration-500 bg-transparent" data-target="section-chronicles"></div>
+        </div>
     </div>
 
     <!-- 🪐 SECTION 1: CINEMATIC FULL SCREEN FILMIC HEADER -->
     <section id="hero-viewport" class="relative w-full h-screen overflow-hidden flex flex-col justify-between items-center text-center px-4 z-10">
         <div class="pt-28 z-10 hero-stagger-node">
-            <div class="font-arabic text-4xl text-[#dfba73]/90 tracking-wide mb-4">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-            <span class="font-sans-labels text-[9.5px] tracking-[0.55em] uppercase text-stone-400 block">The Eternal Union</span>
+            <div class="font-arabic text-4xl text-[#c5a059] tracking-wide mb-4">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+            <span class="font-sans-labels text-[10px] tracking-[0.6em] uppercase text-[#9e8047] font-semibold block">Together with their Families</span>
         </div>
 
-        <div class="my-auto space-y-8 z-10">
-            <h2 class="font-editorial-serif text-5xl sm:text-7xl lg:text-8xl text-white tracking-[0.22em] font-light leading-tight hero-title-node">
-                SHAHZAD <br class="sm:hidden"><span class="text-lg sm:text-xl font-sans-labels font-light text-[#dfba73] tracking-[0.4em] block sm:inline my-6 sm:my-0 sm:mx-8">&</span> FARHA
+        <div class="my-auto space-y-8 z-10 relative">
+            <h2 class="font-editorial-serif text-5xl sm:text-7xl lg:text-8xl text-[#1e1b15] tracking-[0.25em] font-light leading-tight hero-title-node">
+                SHAHZAD <br class="sm:hidden"><span class="text-xl sm:text-2xl font-sans-labels font-medium text-[#c5a059] tracking-[0.4em] block sm:inline my-6 sm:my-0 sm:mx-8">and</span> FARHA
             </h2>
-            <div class="w-16 h-[0.5px] bg-[#dfba73]/40 mx-auto hero-stagger-node"></div>
-            <span class="font-sans-labels text-[11px] tracking-[0.4em] uppercase text-stone-300 block hero-stagger-node">July 11, 2026</span>
+            <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#c5a059] to-transparent mx-auto hero-stagger-node"></div>
+            <span class="font-sans-labels text-[13px] tracking-[0.5em] uppercase text-[#1e1b15] font-semibold block hero-stagger-node">JULY 11, 2026</span>
         </div>
 
         <div class="pb-24 z-10 hero-stagger-node">
-            <div class="text-[#dfba73]/50 font-sans-labels text-[9px] tracking-[0.3em] uppercase animate-pulse">
-                Scroll Down To Unveil
+            <div class="text-[#c5a059] font-sans-labels text-[9.5px] tracking-[0.45em] uppercase font-bold animate-bounce">
+                Scroll To Begin
             </div>
-            <div class="text-[#dfba73]/30 text-lg mt-2">↓</div>
+            <div class="text-[#c5a059] text-xl mt-1">↓</div>
         </div>
     </section>
 
     <!-- 🌌 CORE EDITORIAL SCROLL VIEWPORT WRAPPER -->
     <div class="scrolling-viewport-wrapper w-full">
 
-        <!-- 🕯️ SECTION 2: HOST INVOCATIONS & EPHEMERAL BRANDING -->
-        <section class="max-w-4xl mx-auto px-6 py-40 sm:py-56 text-center space-y-20 relative z-20">
+        <!-- 🕯️ SECTION 2: HOST INVOCATIONS -->
+        <section id="section-invitation" class="max-w-4xl mx-auto px-6 py-40 sm:py-56 text-center space-y-20 relative z-20">
             <div class="gsap-reveal-block space-y-6">
-                <span class="font-sans-labels text-[10px] tracking-[0.45em] text-[#dfba73] uppercase font-medium block">Under the Divine Blessings of Allah</span>
-                <p class="text-2xl sm:text-3xl text-stone-300 max-w-2xl mx-auto font-light italic leading-relaxed font-serif">
-                    We request the honor of your esteemed presence to grace the auspicious marriage ceremony of our son
+                <span class="font-sans-labels text-[11px] tracking-[0.5em] text-[#c5a059] uppercase font-bold block">The Celebration</span>
+                <p class="text-3xl sm:text-4xl text-[#1e1b15] max-w-2xl mx-auto font-light italic leading-relaxed font-serif">
+                    "We request the honor of your esteemed presence to grace the auspicious marriage ceremony of our beloved children"
                 </p>
             </div>
 
-            <div class="w-[0.5px] h-28 bg-[#dfba73]/30 mx-auto gsap-reveal-block"></div>
+            <div class="w-[1px] h-36 bg-gradient-to-b from-[#c5a059] to-transparent mx-auto gsap-reveal-block"></div>
 
             <!-- Host Identity Blocks -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 text-center max-w-3xl mx-auto pt-4 font-editorial-serif">
-                <div class="gsap-reveal-block space-y-3">
-                    <span class="font-sans-labels text-[9px] tracking-[0.3em] text-stone-500 uppercase block mb-1">From The Family of The Groom</span>
-                    <h3 class="text-2xl tracking-[0.15em] text-white font-medium">MR. SHAHUL HAMEED</h3>
-                    <p class="text-xs font-sans-labels font-light text-[#dfba73] lowercase tracking-widest">(Sabu Moopan)</p>
-                    <h3 class="text-2xl tracking-[0.15em] text-white font-medium">& MRS. SHYNA N.A</h3>
-                    <p class="font-sans-labels text-[9.5px] tracking-widest text-stone-400 uppercase pt-2 font-light">Moopan Manzil, Pazhambalacode, Palakkad</p>
+                <div class="gsap-reveal-block space-y-4 relative p-8 bg-white/40 border border-[#c5a059]/10 shadow-sm">
+                    <span class="font-sans-labels text-[10px] tracking-[0.3em] text-[#9e8047] uppercase block font-semibold">Parents of the Groom</span>
+                    <h3 class="text-2xl tracking-[0.15em] text-[#1e1b15] font-semibold">MR. SHAHUL HAMEED</h3>
+                    <p class="text-sm font-sans-labels font-medium text-[#c5a059] tracking-widest lowercase">(Sabu Moopan)</p>
+                    <h3 class="text-2xl tracking-[0.15em] text-[#1e1b15] font-semibold">& MRS. SHYNA N.A</h3>
+                    <div class="w-12 h-[1px] bg-[#c5a059]/40 mx-auto my-2"></div>
+                    <p class="font-sans-labels text-[10px] tracking-widest text-[#1e1b15]/70 uppercase font-medium">Moopan Manzil, Pazhambalacode, Palakkad</p>
                 </div>
 
-                <div class="gsap-reveal-block space-y-3 border-t md:border-t-0 md:border-l border-stone-800 pt-10 md:pt-0 md:pl-16">
-                    <span class="font-sans-labels text-[9px] tracking-[0.3em] text-stone-500 uppercase block mb-1">From The Family of The Bride</span>
-                    <h3 class="text-2xl tracking-[0.15em] text-white font-medium">MR. FIROSH USSANAR</h3>
-                    <h3 class="text-2xl tracking-[0.15em] text-white font-medium">& MRS. KHADEEJA FIROSH</h3>
-                    <p class="font-sans-labels text-[9.5px] tracking-widest text-stone-400 uppercase pt-2 font-light">"Al Busthan" Vadakkenada, Kavassery, Palakkad</p>
+                <div class="gsap-reveal-block space-y-4 relative p-8 bg-white/40 border border-[#c5a059]/10 shadow-sm">
+                    <span class="font-sans-labels text-[10px] tracking-[0.3em] text-[#9e8047] uppercase block font-semibold">Parents of the Bride</span>
+                    <h3 class="text-2xl tracking-[0.15em] text-[#1e1b15] font-semibold">MR. FIROSH USSANAR</h3>
+                    <div class="h-6"></div>
+                    <h3 class="text-2xl tracking-[0.15em] text-[#1e1b15] font-semibold">& MRS. KHADEEJA FIROSH</h3>
+                    <div class="w-12 h-[1px] bg-[#c5a059]/40 mx-auto my-2"></div>
+                    <p class="font-sans-labels text-[10px] tracking-widest text-[#1e1b15]/70 uppercase font-medium">"Al Busthan" Vadakkenada, Kavassery, Palakkad</p>
                 </div>
             </div>
         </section>
 
-        <!-- 👑 SECTION 3: THE COUPLING HERITAGE SECTION -->
-        <section class="max-w-5xl mx-auto px-6 py-32 border-t border-stone-900">
+        <!-- 👑 SECTION 3: THE COUPLING HERITAGE -->
+        <section id="section-lineage" class="max-w-5xl mx-auto px-6 py-32 border-t border-[#c5a059]/20">
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
                 
                 <!-- Groom Info Block -->
                 <div class="lg:col-span-2 text-center lg:text-right space-y-5 gsap-profile-left">
-                    <span class="font-sans-labels text-[9px] tracking-[0.45em] uppercase text-[#dfba73] font-medium block">The Groom</span>
-                    <h2 class="font-editorial-serif text-4xl sm:text-5xl tracking-[0.1em] font-light text-white">SHAHZAD</h2>
-                    <div class="w-12 h-[1px] bg-[#dfba73]/30 ml-auto mr-auto lg:mr-0 my-4"></div>
-                    <p class="font-sans-labels text-[9.5px] tracking-[0.2em] text-stone-400 uppercase leading-relaxed font-light">
-                        Grandson of Late K. Ismail Moopan & Late K. U. Mariyakutty <br>
+                    <span class="font-sans-labels text-[10px] tracking-[0.45em] uppercase text-[#c5a059] font-bold block">The Groom</span>
+                    <h2 class="font-editorial-serif text-4xl sm:text-5xl tracking-[0.15em] font-medium text-[#1e1b15]">SHAHZAD</h2>
+                    <div class="w-16 h-[1px] bg-[#c5a059] ml-auto mr-auto lg:mr-0 my-4"></div>
+                    <p class="font-sans-labels text-[10px] tracking-[0.25em] text-[#1e1b15]/70 uppercase leading-relaxed font-medium">
+                        Grandson of Late K. Ismail Moopan & Late K. U. Mariyakutty <br class="hidden lg:block">
                         & Late N. M. Abubacker & P. B. Fathima
                     </p>
                 </div>
 
-                <!-- Connector layout asset -->
-                <div class="lg:col-span-1 text-center py-4 lg:py-0 gsap-reveal-block">
-                    <span class="font-editorial-serif text-2xl text-[#dfba73]/40 italic block font-light">With</span>
+                <!-- Central Layout Divider -->
+                <div class="lg:col-span-1 flex flex-col items-center justify-center py-4 lg:py-0 gsap-reveal-block">
+                    <div class="w-[1px] h-8 bg-[#c5a059]/40 hidden lg:block mb-4"></div>
+                    <span class="font-editorial-serif text-2xl text-[#c5a059] font-normal italic">UNITED WITH</span>
+                    <div class="w-[1px] h-8 bg-[#c5a059]/40 hidden lg:block mt-4"></div>
                 </div>
 
                 <!-- Bride Info Block -->
                 <div class="lg:col-span-2 text-center lg:text-left space-y-5 gsap-profile-right">
-                    <span class="font-sans-labels text-[9px] tracking-[0.45em] uppercase text-[#dfba73] font-medium block">The Bride</span>
-                    <h2 class="font-editorial-serif text-4xl sm:text-5xl tracking-[0.1em] font-light text-white">FARHA</h2>
-                    <div class="w-12 h-[1px] bg-[#dfba73]/30 mr-auto ml-auto lg:ml-0 my-4"></div>
-                    <p class="font-sans-labels text-[9.5px] tracking-[0.2em] text-stone-400 uppercase leading-relaxed font-light">
-                        Granddaughter of Late Ussanar Sahib & Late Sara Umma <br>
+                    <span class="font-sans-labels text-[10px] tracking-[0.45em] uppercase text-[#c5a059] font-bold block">The Bride</span>
+                    <h2 class="font-editorial-serif text-4xl sm:text-5xl tracking-[0.15em] font-medium text-[#1e1b15]">FARHA</h2>
+                    <div class="w-16 h-[1px] bg-[#c5a059] mr-auto ml-auto lg:ml-0 my-4"></div>
+                    <p class="font-sans-labels text-[10px] tracking-[0.25em] text-[#1e1b15]/70 uppercase leading-relaxed font-medium">
+                        Granddaughter of Late Ussanar Sahib & Late Sara Umma <br class="hidden lg:block">
                         & Late Syed Mohammed & Umaiba Beevi
                     </p>
                 </div>
@@ -230,72 +265,104 @@
             </div>
         </section>
 
-        <!-- ⏱️ SECTION 4: HOROLOGIC SCHEDULING & LOCATION PORTALS -->
-        <section class="max-w-4xl mx-auto px-6 py-40 text-center space-y-24">
+        <!-- ⏱️ SECTION 4: HOROLOGIC SCHEDULING & LOCATION MAPS -->
+        <section id="section-logistics" class="max-w-4xl mx-auto px-6 py-40 text-center space-y-24 border-t border-[#c5a059]/20">
             <div class="gsap-reveal-block text-center space-y-3">
-                <span class="font-sans-labels text-[9.5px] tracking-[0.45em] text-stone-500 uppercase block">The Rendezvous</span>
-                <h2 class="font-editorial-serif text-3xl sm:text-4xl font-light tracking-widest text-white">TIME & DESTINATION</h2>
+                <span class="font-sans-labels text-[10px] tracking-[0.5em] text-[#9e8047] uppercase block font-semibold">Date & Location</span>
+                <h2 class="font-editorial-serif text-3xl sm:text-4xl font-light tracking-widest text-[#1e1b15]">TIME & DESTINATION</h2>
             </div>
 
-            <!-- Luxury Matrix Information Cards Grid -->
+            <!-- Elegant Layout Information Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl mx-auto">
                 
-                <!-- Date Hub Layout Card -->
-                <div class="gsap-card-element bg-stone-900/40 border border-stone-900 p-12 space-y-8 backdrop-blur-md rounded-none text-center">
-                    <span class="font-sans-labels text-[9px] tracking-[0.3em] text-[#dfba73] uppercase font-semibold block">Date & Schedule</span>
+                <!-- Date Card -->
+                <div class="gsap-card-element bg-white/40 border border-[#c5a059]/30 p-12 space-y-8 shadow-sm relative rounded-none">
+                    <span class="font-sans-labels text-[10px] tracking-[0.3em] text-[#c5a059] uppercase font-bold block">The Date</span>
                     <div class="space-y-2">
-                        <h4 class="font-editorial-serif text-2xl text-white tracking-wide font-light">Saturday, 11 July 2026</h4>
-                        <p class="text-stone-500 font-sans-labels text-[10px] tracking-widest uppercase font-light">1448 Muharram 26</p>
+                        <h4 class="font-editorial-serif text-2xl text-[#1e1b15] tracking-wide font-medium">Saturday, 11 July 2026</h4>
+                        <p class="text-[#9e8047] font-sans-labels text-[11px] tracking-widest uppercase font-semibold">1448 Muharram 26</p>
                     </div>
-                    <div class="w-8 h-[0.5px] bg-stone-800 mx-auto"></div>
-                    <p class="font-sans-labels text-[11px] tracking-[0.25em] text-stone-200 uppercase font-medium bg-stone-900/80 py-3 rounded-none border border-stone-800">
+                    <div class="w-12 h-[1px] bg-[#c5a059]/30 mx-auto"></div>
+                    <p class="font-sans-labels text-[12px] tracking-[0.3em] text-white uppercase font-bold bg-[#1e1b15] py-4 rounded-none shadow-md">
                         11:00 AM — 2:00 PM
                     </p>
                 </div>
 
-                <!-- Location Hub Layout Card -->
-                <div class="gsap-card-element bg-stone-900/40 border border-stone-900 p-12 space-y-8 backdrop-blur-md rounded-none text-center flex flex-col justify-between">
+                <!-- Location Card -->
+                <div class="gsap-card-element bg-white/40 border border-[#c5a059]/30 p-12 space-y-8 shadow-sm relative rounded-none flex flex-col justify-between">
                     <div class="space-y-6">
-                        <span class="font-sans-labels text-[9px] tracking-[0.3em] text-[#dfba73] uppercase font-semibold block">The Destination</span>
+                        <span class="font-sans-labels text-[10px] tracking-[0.3em] text-[#c5a059] uppercase font-bold block">The Venue</span>
                         <div class="space-y-2">
-                            <h4 class="font-editorial-serif text-2xl text-white tracking-wide font-light">Kalarikkal Venue</h4>
-                            <p class="text-stone-500 font-sans-labels text-[10px] tracking-widest uppercase font-light">Kulavanmukku, Kuzhalmannam, Palakkad</p>
+                            <h4 class="font-editorial-serif text-2xl text-[#1e1b15] tracking-wide font-medium">Kalarikkal Venue</h4>
+                            <p class="text-[#9e8047]/80 font-sans-labels text-[11px] tracking-widest uppercase font-medium">Kulavanmukku, Kuzhalmannam, Palakkad</p>
                         </div>
                     </div>
                     <div class="pt-8">
-                        <a href="https://maps.google.com/?q=Kalarikkal+Convention+Centre+Kuzhalmannam" target="_blank" class="inline-block font-sans-labels text-[9.5px] tracking-[0.35em] text-[#dfba73] uppercase font-semibold border-b border-[#dfba73]/30 pb-2 hover:text-white hover:border-white transition-all duration-300">
-                            Launch Navigation Hub →
+                        <a href="https://maps.google.com/?q=Kalarikkal+Convention+Centre+Kuzhalmannam" target="_blank" class="inline-block font-sans-labels text-[10px] tracking-[0.35em] text-[#1e1b15] uppercase font-bold border-b-2 border-[#c5a059] pb-2 hover:text-[#c5a059] transition-all duration-300">
+                            View Location Map →
                         </a>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Precision Digital Realtime Matrix Countdown Module -->
-            <div class="gsap-reveal-block max-w-xl mx-auto pt-16 border-t border-stone-900">
-                <span class="font-sans-labels text-[9px] tracking-[0.4em] text-stone-500 uppercase block mb-10">Approaching The Blessed Moment</span>
-                <div id="live-countdown-clock" class="grid grid-cols-4 gap-4 font-editorial-serif text-3xl sm:text-5xl text-white font-light">
-                    <div><span id="days-span" class="block font-light text-[#dfba73] tabular-nums">00</span><span class="text-[9px] tracking-[0.25em] uppercase font-sans-labels text-stone-500 block mt-3">Days</span></div>
-                    <div><span id="hours-span" class="block font-light text-[#dfba73] tabular-nums">00</span><span class="text-[9px] tracking-[0.25em] uppercase font-sans-labels text-stone-500 block mt-3">Hours</span></div>
-                    <div><span id="minutes-span" class="block font-light text-[#dfba73] tabular-nums">00</span><span class="text-[9px] tracking-[0.25em] uppercase font-sans-labels text-stone-500 block mt-3">Mins</span></div>
-                    <div><span id="seconds-span" class="block font-light text-[#dfba73] tabular-nums">00</span><span class="text-[9px] tracking-[0.25em] uppercase font-sans-labels text-stone-500 block mt-3">Secs</span></div>
+            <!-- Realtime Counter Module -->
+            <div class="gsap-reveal-block max-w-xl mx-auto pt-16 border-t border-[#c5a059]/20">
+                <span class="font-sans-labels text-[10px] tracking-[0.4em] text-[#9e8047] uppercase block mb-10 font-semibold">Counting Down To The Celebration</span>
+                <div id="live-countdown-clock" class="grid grid-cols-4 gap-4 font-editorial-serif text-4xl sm:text-5xl text-[#1e1b15] font-light">
+                    <div class="bg-white/60 p-4 border border-[#c5a059]/20 shadow-sm"><span id="days-span" class="block font-medium text-[#c5a059] tabular-nums">00</span><span class="text-[10px] tracking-[0.25em] uppercase font-sans-labels text-[#9e8047] block mt-3 font-semibold">Days</span></div>
+                    <div class="bg-white/60 p-4 border border-[#c5a059]/20 shadow-sm"><span id="hours-span" class="block font-medium text-[#c5a059] tabular-nums">00</span><span class="text-[10px] tracking-[0.25em] uppercase font-sans-labels text-[#9e8047] block mt-3 font-semibold">Hours</span></div>
+                    <div class="bg-white/60 p-4 border border-[#c5a059]/20 shadow-sm"><span id="minutes-span" class="block font-medium text-[#c5a059] tabular-nums">00</span><span class="text-[10px] tracking-[0.25em] uppercase font-sans-labels text-[#9e8047] block mt-3 font-semibold">Mins</span></div>
+                    <div class="bg-white/60 p-4 border border-[#c5a059]/20 shadow-sm"><span id="seconds-span" class="block font-medium text-[#c5a059] tabular-nums">00</span><span class="text-[10px] tracking-[0.25em] uppercase font-sans-labels text-[#9e8047] block mt-3 font-semibold">Secs</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- 🏛️ SECTION 5: MASTER CLOSING PORTAL MATRICES -->
-        <footer class="w-full text-center py-24 border-t border-stone-900 relative z-20 bg-[#0c0b0a]/80">
+        <!-- 📜 OUR STORY TIMELINE COMPONENT -->
+        <section id="section-chronicles" class="max-w-4xl mx-auto px-6 py-32 border-t border-[#c5a059]/20 text-center space-y-20">
+            <div class="gsap-reveal-block space-y-3">
+                <span class="font-sans-labels text-[10px] tracking-[0.5em] text-[#9e8047] uppercase block font-semibold">Our Story</span>
+                <h2 class="font-editorial-serif text-3xl sm:text-4xl font-light tracking-widest text-[#1e1b15]">THE JOURNEY</h2>
+            </div>
+
+            <div class="relative border-l border-[#c5a059]/30 max-w-xl mx-auto text-left pl-8 space-y-12">
+                <!-- Node 1 -->
+                <div class="gsap-story-node relative space-y-2">
+                    <div class="absolute -left-[37px] top-1.5 w-4 h-4 bg-[#1e1b15] border border-[#c5a059] rotate-45"></div>
+                    <span class="font-sans-labels text-[10px] tracking-widest text-[#c5a059] font-bold block">AUGUST 2024</span>
+                    <h4 class="font-editorial-serif text-xl font-medium text-[#1e1b15]">The Introduction</h4>
+                    <p class="text-sm font-light text-[#1e1b15]/70 leading-relaxed">Our families introduced our paths to one another, opening a thoughtful conversation about a shared tomorrow.</p>
+                </div>
+                <!-- Node 2 -->
+                <div class="gsap-story-node relative space-y-2">
+                    <div class="absolute -left-[37px] top-1.5 w-4 h-4 bg-[#1e1b15] border border-[#c5a059] rotate-45"></div>
+                    <span class="font-sans-labels text-[10px] tracking-widest text-[#c5a059] font-bold block">JANUARY 2025</span>
+                    <h4 class="font-editorial-serif text-xl font-medium text-[#1e1b15]">The Engagement</h4>
+                    <p class="text-sm font-light text-[#1e1b15]/70 leading-relaxed">With the blessings of our parents, our intentions transformed into an official promise of lifelong devotion.</p>
+                </div>
+                <!-- Node 3 -->
+                <div class="gsap-story-node relative space-y-2">
+                    <div class="absolute -left-[37px] top-1.5 w-4 h-4 bg-[#c5a059] border border-[#e5c17d] rotate-45 animate-pulse"></div>
+                    <span class="font-sans-labels text-[10px] tracking-widest text-[#c5a059] font-bold block">JULY 2026</span>
+                    <h4 class="font-editorial-serif text-xl font-medium text-[#1e1b15]">The Marriage Ceremony</h4>
+                    <p class="text-sm font-light text-[#1e1b15]/70 leading-relaxed">The formal step into our future. Celebrating our unity before God, our families, and loved ones.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 👑 SECTION 5: MASTER CLOSING PORTAL MATRICES -->
+        <footer class="w-full text-center py-24 border-t border-[#c5a059]/20 relative z-20 bg-white/90">
             <div class="space-y-4 gsap-reveal-block">
-                <p class="font-sans-labels text-[10px] tracking-[0.4em] text-stone-500 uppercase">
-                    With Kindest Compliments From <span class="text-white font-medium">The Moopan Family</span>
+                <p class="font-sans-labels text-[11px] tracking-[0.4em] text-[#9e8047] uppercase font-semibold">
+                    With Kindest Compliments From <span class="text-[#1e1b15] font-bold">The Moopan Family</span>
                 </p>
-                <div class="text-[12px] font-light text-stone-400 italic">Anticipating your treasured presence.</div>
+                <div class="text-[14px] font-light text-[#1e1b15]/70 italic font-serif">Anticipating your treasured presence.</div>
             </div>
         </footer>
 
     </div>
 
-    <!-- UI Execution Lifecyle Automation Scripts -->
+    <!-- UI Execution Lifecycle Automation Scripts -->
     <script>
         const weddingTimestamp = new Date("2026-07-11T11:00:00").getTime();
         const loopAudioContext = document.getElementById('wedding-symphony');
@@ -303,7 +370,7 @@
 
         let threeScene, threeCamera, threeRenderer, stardustSystem;
 
-        // Initialize WebGL ThreeJS Ambient Starfield Architecture Engine
+        // Initialize WebGL ThreeJS Light Gold Particle Grid
         function initWebGLStardustCanvas() {
             const container = document.getElementById('webgl-canvas-container');
             threeScene = new THREE.Scene();
@@ -317,30 +384,29 @@
             container.appendChild(threeRenderer.domElement);
 
             const geometricalStars = new THREE.BufferGeometry();
-            const starsCount = window.innerWidth < 768 ? 1200 : 2500;
+            const starsCount = window.innerWidth < 768 ? 800 : 1800;
             const absolutePositions = new Float32Array(starsCount * 3);
 
             for(let i=0; i<starsCount*3; i++) {
-                absolutePositions[i] = (Math.random() - 0.5) * 250;
+                absolutePositions[i] = (Math.random() - 0.5) * 220;
             }
 
             geometricalStars.setAttribute('position', new THREE.BufferAttribute(absolutePositions, 3));
 
-            // Luxury Muted Gold Stardust Textured Particle System Configs
+            // Sharp Clear Golden Flakes
             const materialMap = new THREE.PointsMaterial({
-                size: 0.85,
-                color: 0xdfba73,
+                size: 1.2,
+                color: 0xc5a059,
                 transparent: true,
-                opacity: 0.8,
-                blending: THREE.AdditiveBlending
+                opacity: 0.6,
+                blending: THREE.NormalBlending
             });
 
             stardustSystem = new THREE.Points(geometricalStars, materialMap);
             threeScene.add(stardustSystem);
 
-            // Responsive Window Scaling Listeners
             window.addEventListener('resize', onViewportTransformResize, false);
-            document.addEventListener('mousemove', onInterativeCursorMotion, false);
+            document.addEventListener('mousemove', onInteractiveCursorMotion, false);
 
             renderThreeJSAudioLoop();
         }
@@ -351,35 +417,30 @@
             threeRenderer.setSize(window.innerWidth, window.innerHeight);
         }
 
-        // Slight Interactive Cursor Drift
         let trackingX = 0, trackingY = 0;
-        function onInterativeCursorMotion(event) {
-            trackingX = (event.clientX - window.innerWidth / 2) * 0.005;
-            trackingY = (event.clientY - window.innerHeight / 2) * 0.005;
+        function onInteractiveCursorMotion(event) {
+            trackingX = (event.clientX - window.innerWidth / 2) * 0.004;
+            trackingY = (event.clientY - window.innerHeight / 2) * 0.004;
         }
 
         function renderThreeJSAudioLoop() {
             requestAnimationFrame(renderThreeJSAudioLoop);
             
-            stardustSystem.rotation.y += 0.0008;
-            stardustSystem.rotation.x += 0.0003;
+            stardustSystem.rotation.y += 0.0006;
+            stardustSystem.rotation.x += 0.0002;
 
-            // Follow scrolling positioning metrics inside the 3D space
             const currentScrollDistance = window.scrollY;
-            stardustSystem.position.y = currentScrollDistance * 0.03;
-
-            // Interpolated drift
+            stardustSystem.position.y = currentScrollDistance * 0.025;
             stardustSystem.position.x += (trackingX - stardustSystem.position.x) * 0.05;
 
             threeRenderer.render(threeScene, threeCamera);
         }
 
-        // Register ScrollTrigger Engine Plugin
         gsap.registerPlugin(ScrollTrigger);
 
-        // Preloading System Screen Orchestration
         window.addEventListener('DOMContentLoaded', () => {
             initWebGLStardustCanvas();
+            setupCountdownClock();
             
             const tl = gsap.timeline();
             tl.to("#curtain-header", { opacity: 1, y: 0, duration: 1.4, delay: 0.4, ease: "power3.out" })
@@ -387,7 +448,6 @@
               .to("#curtain-footer", { opacity: 1, duration: 1 }, "-=0.6");
         });
 
-        // Activation Execution Functionality Trigger
         function igniteCinematicSystem() {
             document.body.classList.remove('overflow-hidden');
 
@@ -399,114 +459,161 @@
 
             entryTimeline.to("#loading-curtain", {
                 yPercent: -100,
-                duration: 1.8,
+                duration: 1.6,
                 ease: "power4.inOut"
             })
-            .to("#hud-audio-control", {
+            .to("#hud-audio-control, #hud-navigation-matrix", {
                 opacity: 1,
                 y: 0,
                 pointerEvents: "auto",
-                duration: 1.2
-            }, "-=0.7")
+                duration: 1.2,
+                stagger: 0.15
+            }, "-=0.5")
             .from(".hero-stagger-node", {
                 opacity: 0,
                 y: 40,
-                stagger: 0.18,
+                stagger: 0.15,
                 duration: 1.5,
                 ease: "power3.out"
-            }, "-=1.3")
+            }, "-=1.1")
             .from(".hero-title-node", {
                 opacity: 0,
-                letterSpacing: "0.45em",
-                duration: 2.2,
+                letterSpacing: "0.5em",
+                duration: 2.0,
                 ease: "power2.out"
-            }, "-=1.6");
+            }, "-=1.4");
 
-            // Exponential Ambient Audio Fade-In Logic Loop
             loopAudioContext.volume = 0;
             loopAudioContext.play().then(() => {
                 visualizerDockElement.classList.remove('audio-paused-state');
-                gsap.to(loopAudioContext, { volume: 0.4, duration: 3.5, ease: "none" });
-            }).catch(err => console.log("System initialized manually via HUD action maps."));
+                gsap.to(loopAudioContext, { volume: 0.3, duration: 3.0, ease: "none" });
+            }).catch(err => console.log("System audio fallback initiated."));
 
             initGsapSpatialAnimations();
+            setupHUDScrollTracking();
         }
 
-        // Sound Engine Control Handlers
         function toggleSymphonyPlaystate() {
-            if (loopAudioContext.paused) {
+            if(loopAudioContext.paused) {
                 loopAudioContext.play();
                 visualizerDockElement.classList.remove('audio-paused-state');
-                gsap.to(loopAudioContext, { volume: 0.4, duration: 1.5 });
             } else {
-                gsap.to(loopAudioContext, {
-                    volume: 0,
-                    duration: 0.8,
-                    onComplete: () => {
-                        loopAudioContext.pause();
-                        visualizerDockElement.classList.add('audio-paused-state');
-                    }
-                });
+                loopAudioContext.pause();
+                visualizerDockElement.classList.add('audio-paused-state');
             }
         }
 
-        // Continuous Fluid Display Trigger Maps
         function initGsapSpatialAnimations() {
-            gsap.utils.toArray(".gsap-reveal-block").forEach(element => {
-                gsap.from(element, {
+            gsap.utils.toArray('.gsap-reveal-block').forEach((el) => {
+                gsap.from(el, {
                     scrollTrigger: {
-                        trigger: element,
-                        start: "top 90%",
+                        trigger: el,
+                        start: "top 85%",
                         toggleActions: "play none none none"
                     },
                     opacity: 0,
-                    y: 45,
-                    duration: 1.5,
+                    y: 40,
+                    duration: 1.2,
                     ease: "power3.out"
                 });
             });
 
-            gsap.from(".gsap-profile-left", {
-                scrollTrigger: { trigger: ".gsap-profile-left", start: "top 85%" },
+            gsap.from('.gsap-profile-left', {
+                scrollTrigger: {
+                    trigger: '#section-lineage',
+                    start: "top 80%"
+                },
                 opacity: 0,
-                x: -70,
-                duration: 1.8,
-                ease: "power4.out"
-            });
-
-            gsap.from(".gsap-profile-right", {
-                scrollTrigger: { trigger: ".gsap-profile-right", start: "top 85%" },
-                opacity: 0,
-                x: 70,
-                duration: 1.8,
-                ease: "power4.out"
-            });
-
-            gsap.from(".gsap-card-element", {
-                scrollTrigger: { trigger: ".gsap-card-element", start: "top 85%" },
-                opacity: 0,
-                y: 60,
-                stagger: 0.3,
+                x: -50,
                 duration: 1.5,
                 ease: "power3.out"
             });
+
+            gsap.from('.gsap-profile-right', {
+                scrollTrigger: {
+                    trigger: '#section-lineage',
+                    start: "top 80%"
+                },
+                opacity: 0,
+                x: 50,
+                duration: 1.5,
+                ease: "power3.out"
+            });
+
+            gsap.utils.toArray('.gsap-card-element').forEach((card, index) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 90%"
+                    },
+                    opacity: 0,
+                    y: 30,
+                    duration: 1.2,
+                    delay: index * 0.2,
+                    ease: "power3.out"
+                });
+            });
+
+            gsap.utils.toArray('.gsap-story-node').forEach((node) => {
+                gsap.from(node, {
+                    scrollTrigger: {
+                        trigger: node,
+                        start: "top 85%"
+                    },
+                    opacity: 0,
+                    x: -20,
+                    duration: 1.0,
+                    ease: "power2.out"
+                });
+            });
         }
 
-        // Countdown Framework Realtime Loops
-        setInterval(function() {
-            const systemTime = new Date().getTime();
-            const deltaDistance = weddingTimestamp - systemTime;
+        function setupHUDScrollTracking() {
+            const views = ['hero-viewport', 'section-invitation', 'section-lineage', 'section-logistics', 'section-chronicles'];
+            const dots = document.querySelectorAll('.hud-nav-dot');
 
-            const days = Math.floor(deltaDistance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((deltaDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((deltaDistance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((deltaDistance % (1000 * 60)) / 1000);
+            window.addEventListener('scroll', () => {
+                let currentActiveView = views[0];
+                views.forEach(v => {
+                    const bounding = document.getElementById(v).getBoundingClientRect();
+                    if(bounding.top <= window.innerHeight * 0.5) {
+                        currentActiveView = v;
+                    }
+                });
 
-            document.getElementById("days-span").innerText = String(Math.max(0, days)).padStart(2, '0');
-            document.getElementById("hours-span").innerText = String(Math.max(0, hours)).padStart(2, '0');
-            document.getElementById("minutes-span").innerText = String(Math.max(0, minutes)).padStart(2, '0');
-            document.getElementById("seconds-span").innerText = String(Math.max(0, seconds)).padStart(2, '0');
-        }, 1000);
+                dots.forEach(dot => {
+                    if(dot.getAttribute('data-target') === currentActiveView) {
+                        dot.classList.add('active-hud-dot');
+                    } else {
+                        dot.classList.remove('active-hud-dot');
+                    }
+                });
+            });
+        }
+
+        function setupCountdownClock() {
+            function updateClock() {
+                const now = new Date().getTime();
+                const delta = weddingTimestamp - now;
+
+                if (delta < 0) {
+                    clearInterval(clockInterval);
+                    return;
+                }
+
+                const d = Math.floor(delta / (1000 * 60 * 60 * 24));
+                const h = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((delta % (1000 * 60)) / 1000);
+
+                document.getElementById('days-span').textContent = String(d).padStart(2, '0');
+                document.getElementById('hours-span').textContent = String(h).padStart(2, '0');
+                document.getElementById('minutes-span').textContent = String(m).padStart(2, '0');
+                document.getElementById('seconds-span').textContent = String(s).padStart(2, '0');
+            }
+            updateClock();
+            const clockInterval = setInterval(updateClock, 1000);
+        }
     </script>
 </body>
 </html>
